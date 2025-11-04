@@ -1,0 +1,1 @@
+//definir algo abstrato é em italico (no diagrama de classes)
