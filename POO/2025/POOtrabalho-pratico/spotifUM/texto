@@ -1,0 +1,12 @@
+[Musica] <---- [MusicaExplicita]
+   ^            [MusicaMultimedia]
+   |
+   v
+[Album] -------> [BibliotecaPessoal] <------- [UtilizadorPremium] -------> [PlanoSubscricao]
+                        ^                             ^                         ^
+                        |                             |                         |
+[Playlist] <--- [PlaylistPersonalizada]     [Utilizador]                   [PlanoFree]
+   ^             [PlaylistAleatoria]              ^                        [PlanoBase]
+   |             [PlaylistFavoritos]              |                        [PlanoTop]
+   v                                              v
+[SpotifUM] ----------------------------------------
