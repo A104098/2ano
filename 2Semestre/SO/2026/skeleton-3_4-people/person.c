@@ -1,4 +1,5 @@
 #include "person.h"
+#include <sys/types.h>
 #include <fcntl.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -32,7 +33,11 @@ int insertPerson(char* name, int age) {
 }
 
 int list (int n) {
-    // TO DO
+    int fd = open(DB, O_RDONLY);
+    if (fd < 0) {
+        perror("open");
+        return 1;
+    }
     Person p;
     read(fd, &p, sizeof(Person));
     return 0;
