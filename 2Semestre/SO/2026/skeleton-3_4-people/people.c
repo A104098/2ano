@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "person.h"
 
@@ -17,7 +18,7 @@ int main(int argc, char* argv[]){
 
     if ( strcmp(argv[1],"-i") == 0 )
     {
-        // TO DO
+        return insertPerson(argv[2], atoi(argv[3]));
     }
 
     if ( strcmp(argv[1],"-l") == 0 )
