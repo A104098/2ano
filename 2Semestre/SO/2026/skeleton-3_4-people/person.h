@@ -9,5 +9,7 @@ typedef struct person {
 } Person;
 
 int insertPerson(char* name, int age);
+int listPersons(int n);
+int updatePerson(char* name, int age);
 
 #endif // PERSON_H
