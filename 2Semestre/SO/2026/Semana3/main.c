@@ -29,6 +29,38 @@ int ex2(){
     return 0;
 }
 
+
+
+
+// resolução do stor
+
+int ex3() {
+    for(int i = 1; i <= 10; i++){
+        pid_t pid = fork();
+        
+        if(pid == 0){
+            // Processo filho
+            printf("[child %d] pid=%d\n", i, getpid());
+            printf("[child %d] ppid=%d\n", i, getppid());
+            exit(i + 1);  // Termina com código de saída igual ao número de ordem
+        }else{
+        int status;
+        wait(&status);
+            if (WIFEXITED(status)){
+                int exit_code = WEXITSTATUS(status);
+                printf("[parent] child exited with status=%d\n", exit_code);
+            }else{
+            printf("[parent] child did not exit normally\n");
+            }
+
+        }
+        
+    }
+    return 0;
+}
+
+/* minha resolução
+
 int ex3(){
     for(int i = 1; i <= 10; i++){
         pid_t pid = fork();
@@ -57,6 +89,9 @@ int ex3(){
     return 0;
 }
 
+*/
+
+
 int ex4(){
     for(int i = 1; i <= 10; i++){
         pid_t pid = fork();
@@ -74,7 +109,7 @@ int ex4(){
     }
     
     // Pai espera por todos os 10 filhos
-    printf("[Pai] Esperando pelos 10 filhos...\n");
+    printf("[Pai] Espera pelos 10 filhos...\n");
     for(int i = 1; i <= 10; i++){
         int status;
         pid_t pid_terminado = wait(&status);
@@ -86,6 +121,8 @@ int ex4(){
     printf("[Pai] Todos os filhos terminaram\n");
     return 0;
 }
+
+
 
 int main(){
     int ex;
